@@ -36,11 +36,17 @@ public class MatrixServicio implements IMatrixServicio{
         Respuesta respuesta = new Respuesta();
         for(String text: horizontales){
             if(text.contains(word)){
+                int indexRow = horizontales.indexOf(text);
+                respuesta.setStart_row(indexRow);
+                int indexColumn = text.indexOf(word);
+                respuesta.setStart_col(indexColumn);
                 respuesta.setContains(true);
             }
         }
         for(String text: verticales){
             if(text.contains(word)){
+                int indexColumn = verticales.indexOf(text);
+                respuesta.setStart_col(indexColumn);
                 respuesta.setContains(true);
             }
         }
